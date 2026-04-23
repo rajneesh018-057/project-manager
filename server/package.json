@@ -4,12 +4,12 @@
   "description": "TrustFlow Backend Server",
   "main": "server.js",
   "type": "module",
-  "scripts": {
-    "postinstall": "npx prisma generate ",
-    "start": "prisma generate &&node server.js",
-    "server": "nodemon server.js",
-    "test": "echo \"Error: no test specified\" && exit 1"
-  },
+"scripts": {
+  "postinstall": "prisma generate",
+  "build": "prisma generate",
+  "start": "node server.js",
+  "server": "nodemon server.js"
+},
   "keywords": [],
   "author": "",
   "license": "ISC",
