@@ -1,4 +1,4 @@
-import 'dotenv/config'; // must stay first
+import 'dotenv/config';
 
 import express from 'express';
 import cors from 'cors';
@@ -11,9 +11,8 @@ const app = express();
 // Middleware
 app.use(cors());
 app.use(express.json());
-app.use(clerkMiddleware());
 
-// Inngest Route
+/* ✅ Make Inngest PUBLIC */
 app.use(
   "/api/inngest",
   serve({
@@ -22,12 +21,12 @@ app.use(
   })
 );
 
+/* ✅ Apply Clerk AFTER Inngest */
+app.use(clerkMiddleware());
+
 // Test Route
 app.get("/", (req, res) => {
   res.send("Server is running 🚀");
 });
-
-// ❌ REMOVE app.listen()
-// ✅ EXPORT app instead
 
 export default app;
